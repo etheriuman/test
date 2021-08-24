@@ -1,28 +1,44 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HeaderDark v-if="colorMode === 'dark'" />
+    <HeaderLight v-else />
+    <router-view></router-view>
+    <Footer />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HeaderDark from './components/HeaderDark.vue'
+import HeaderLight from './components/HeaderLight.vue'
+import Footer from './components/Footer.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HeaderDark,
+    HeaderLight,
+    Footer
+  },
+  data() {
+    return {
+      colorMode: 'dark'
+    }
+  },
+  beforeUpdate() {
+    if (this.$route.name === 'index') {
+      this.colorMode = 'dark'
+    } else {
+      this.colorMode = 'light'
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang='scss'>
+@import 'assets/scss/reset.scss';
+@import 'assets/scss/main.scss';
+
+body {
+  font-family: $mainFont;
 }
 </style>
