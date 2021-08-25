@@ -126,4 +126,10 @@ export default {
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .nav-item {
+    display: none;
+  }
+}
 </style>

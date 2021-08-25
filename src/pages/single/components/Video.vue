@@ -1,7 +1,9 @@
 <template>
   <div v-show="isVideoOpen" class="video">
-    <iframe width="1200" height="675" src="https://www.youtube.com/embed/PlCbgZxonJs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <div @click.stop="closeVideo" class="video-close"></div>
+    <div class="iframe-wrapper">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/PlCbgZxonJs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div @click.stop="closeVideo" class="video-close"></div>
+    </div>
   </div>
 </template>
 
@@ -32,9 +34,20 @@ export default {
   left: 0;
   z-index: 1000;
   background: rgba($black, .6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+  .iframe-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 120px 40px 120px;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
 
   .video-close {
     display: block;

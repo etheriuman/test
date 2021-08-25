@@ -108,8 +108,9 @@ export default {
     background-position: top 40px left 32px;
 
     .title {
-      width: 580px;
+      max-width: 580px;
       font-size: $h2;
+      margin-right: 132px;
     }
     .title::after {
       content: '';
@@ -121,10 +122,9 @@ export default {
     }
 
     .description {
-      width: 490px;
+      max-width: 490px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       
       .description-title {
         font-size: $h4;
@@ -170,6 +170,7 @@ export default {
       
       .text {
         max-width: 587px;
+        width: calc(100% - 600px);
         font-size: $b2;
         line-height: 26px;
       }
@@ -180,24 +181,28 @@ export default {
         color: $lightGray_01;
       }
       .picture {
-        width: 486px;
+        max-width: 486px;
+        width: 45%;
         height: 364px;
-        background: url('./../../assets/images/single_img 1.png')
+        background: url('./../../assets/images/single_img 1.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
       }
     }
     .story {
       width: 100%;
       position: relative;
-      margin-bottom: 150px;
+      margin-bottom: 90px;
       
       .text {
-        width: 690px;
-        height: 300px;
+        max-width: 690px;
+        width: 55%;
         padding: 72px 50px 60px 50px;
         background: $white;
         position: absolute;
-        left: 510px;
-        top: 210px;
+        right: 0px;
+        bottom: 0px;
         font-size: $b2;
         line-height: 26px;
         
@@ -216,7 +221,7 @@ export default {
         width: 152px;
         height: 152px;
         position: absolute;
-        top: 150px;
+        bottom: 0px;
         right: 15px;
         background: linear-gradient(
           to bottom right,
@@ -228,7 +233,8 @@ export default {
         );
       }
       .picture {
-        width: 690px;
+        max-width: 690px;
+        width: 55%;
         height: 453px;
         background: url('./../../assets/images/index_img_03 2.png');
         background-repeat: no-repeat;
@@ -364,4 +370,44 @@ export default {
   }
 }
 
+@media screen and (max-width: 1000px) {
+
+  .topic {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      font-size: $h3 !important;
+      margin-right: 0px;
+      margin-bottom: 100px;
+    }
+  }
+  .intro {
+    flex-direction: column;
+    align-items: center;
+
+    .text {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-bottom: 60px;
+    }
+    .picture {
+      width: 100% !important;
+    }
+  }
+  .story {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .text {
+      position: relative !important;
+      width: 100% !important;
+      margin-bottom: 50px;
+    }
+    .picture {
+      width: 100% !important;
+    }
+  }
+}
 </style>

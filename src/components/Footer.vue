@@ -110,4 +110,10 @@ export default {}
     font-size: $b2;
   }
 }
+
+@media screen and (max-width: 1000px) {
+  .contact {
+    display: none !important;
+  }
+}
 </style>
